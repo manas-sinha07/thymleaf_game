@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Warriors | Dragon Realm</title>
+
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+
+<body class="warriors-page">
+
+
+<header class="navbar">
+
+
+    <div class="logo">
+
+        <div class="logo-dragon">
+              <img src="/dragon-logo.png" alt="Dragon Realm">
+        </div>
+
+        <div>
+
+            <h1>DRAGON REALM</h1>
+
+            <span>BECOME LEGENDARY</span>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            HOME
+        </a>
+
+        <a href="/login">
+            JOIN
+        </a>
+
+        <a href="/showGame"
+           class="active">
+
+            WARRIORS
+
+        </a>
+
+    </nav>
+
+
+</header>
+
+
+
+<section class="warriors-header">
+
+    <span>
+        THE HALL OF
+    </span>
+
+    <h1>
+        WARRIORS
+    </h1>
+
+    <p>
+        Every warrior who enters the realm
+        becomes part of its history.
+    </p>
+
+</section>
+
+
+
+<section class="players-container">
+
+
+    <div class="players-grid">
+
+
+        <div class="player-card"
+             th:each="game : ${games}">
+
+
+            <div class="player-image">
+
+
+                <img
+                    th:if="${game.base64Image != null}"
+                    th:src="@{|data:image/jpeg;base64,${game.base64Image}|}"
+                    alt="Warrior">
+
+
+                <div
+                    th:if="${game.base64Image == null}"
+                    class="default-player">
+
+                    <i data-lucide="user"></i>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="player-info">
+
+
+                <span>
+                    WARRIOR
+                </span>
+
+
+                <h2 th:text="${game.name}">
+                    Warrior
+                </h2>
+
+
+                <div class="player-id">
+
+                    <i data-lucide="shield"></i>
+
+                    ID:
+                    <span th:text="${game.id}">
+                        001
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="empty-state"
+         th:if="${games.isEmpty()}">
+
+        <i data-lucide="swords"></i>
+
+        <h2>
+            NO WARRIORS YET
+        </h2>
+
+        <p>
+            Be the first warrior to enter the realm.
+        </p>
+
+        <a href="/login"
+           class="gold-button">
+
+            BECOME A WARRIOR
+
+            <i data-lucide="arrow-right"></i>
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+
+<footer class="footer">
+
+
+    <div class="footer-brand">
+
+        <strong>
+            DRAGON REALM
+        </strong>
+
+        <span>
+            BECOME LEGENDARY
+        </span>
+
+    </div>
+
+
+    <div class="footer-links">
+
+        <a href="/">
+            HOME
+        </a>
+
+        <a href="/login">
+            JOIN
+        </a>
+
+    </div>
+
+
+    <div class="footer-social">
+
+        <a href="https://discord.gg/YOUR_INVITE"
+           target="_blank">
+
+            <i data-lucide="message-circle"></i>
+
+        </a>
+
+
+        <a href="https://youtube.com/@YOUR_CHANNEL"
+           target="_blank">
+
+            <i data-lucide="youtube"></i>
+
+        </a>
+
+    </div>
+
+
+</footer>
+
+
+<script>
+
+    lucide.createIcons();
+
+</script>
+
+
+</body>
+
+</html>

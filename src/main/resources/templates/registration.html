@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Enter Dragon Realm</title>
+
+    <link rel="stylesheet"
+          href="/css/style.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+
+<body class="login-page">
+
+
+<!-- BACK BUTTON -->
+
+<a href="/"
+   class="back-home">
+
+    <i data-lucide="arrow-left"></i>
+
+    BACK TO REALM
+
+</a>
+
+
+
+<!-- LOGIN CARD -->
+
+<div class="login-container">
+
+
+    <div class="login-card">
+
+
+        <div class="login-icon">
+
+            <i data-lucide="flame"></i>
+
+        </div>
+
+
+        <div class="login-heading">
+
+            <span>
+                ENTER THE REALM
+            </span>
+
+            <h1>
+                PLAYER LOGIN
+            </h1>
+
+            <p>
+                Create your warrior identity
+            </p>
+
+        </div>
+
+
+
+        <form th:action="@{/register}"
+              method="post"
+              enctype="multipart/form-data">
+
+
+            <!-- NAME -->
+
+            <div class="input-group">
+
+                <i data-lucide="user"></i>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Warrior Name"
+                    required>
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <i data-lucide="lock"></i>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    required>
+
+            </div>
+
+
+
+            <!-- PROFILE IMAGE -->
+
+            <label class="upload-box"
+                   for="imageFile">
+
+                <i data-lucide="image"></i>
+
+                <div>
+
+                    <strong>
+                        PROFILE PICTURE
+                    </strong>
+
+                    <span id="file-name">
+                        Choose an image
+                    </span>
+
+                </div>
+
+                <i data-lucide="upload"></i>
+
+            </label>
+
+
+            <input
+                type="file"
+                id="imageFile"
+                name="imageFile"
+                accept="image/*"
+                hidden>
+
+
+
+            <!-- SUBMIT -->
+
+            <button type="submit"
+                    class="login-submit">
+
+                ENTER THE REALM
+
+                <i data-lucide="arrow-right"></i>
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    lucide.createIcons();
+
+
+    const fileInput =
+        document.getElementById("imageFile");
+
+    const fileName =
+        document.getElementById("file-name");
+
+
+    fileInput.addEventListener("change", function () {
+
+        if (this.files.length > 0) {
+
+            fileName.textContent =
+                this.files[0].name;
+
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

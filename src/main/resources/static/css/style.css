@@ -1,0 +1,1458 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: #050505;
+    color: #eeeeee;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* =================================
+   NAVBAR
+================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 55px;
+
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, .95),
+            rgba(0, 0, 0, .25));
+
+    backdrop-filter: blur(5px);
+
+    z-index: 1000;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+
+/* =========================
+   DRAGON LOGO - SIZE FIX ONLY
+   ========================= */
+
+.logo-dragon {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.logo-dragon img {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+    display: block;
+}
+
+
+.logo h1 {
+    font-family: 'Cinzel', serif;
+    color: #e6a900;
+
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+
+.logo span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 8px;
+    letter-spacing: 5px;
+
+    color: #aaa;
+}
+
+
+.navbar nav {
+    display: flex;
+    gap: 38px;
+}
+
+
+.navbar nav a {
+    color: #ddd;
+    text-decoration: none;
+
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    transition: .3s;
+}
+
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #e6a900;
+}
+
+
+.login-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 22px;
+
+    border: 1px solid #c89400;
+
+    color: #e6a900;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    transition: .3s;
+}
+
+
+.login-button:hover {
+    background: #d59b00;
+    color: #050505;
+
+    box-shadow:
+        0 0 25px rgba(230, 169, 0, .35);
+}
+
+
+
+/* =================================
+   HERO
+================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 10%;
+
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(90deg,
+            rgba(0, 0, 0, .72),
+            rgba(0, 0, 0, .35),
+            rgba(0, 0, 0, .15)),
+        url('/dragon-bg.png');
+
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+/* dragon breathing effect */
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 78% 52%,
+            rgba(255, 170, 0, .16),
+            transparent 32%);
+
+    animation: dragonBreath 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes dragonBreath {
+
+    0%,
+    100% {
+        opacity: .35;
+    }
+
+    50% {
+        opacity: .8;
+    }
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 620px;
+
+}
+
+
+.small-title {
+
+    color: #e6a900;
+
+    font-size: 12px;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.hero h2 {
+
+    font-family: 'Cinzel', serif;
+
+    font-size: clamp(55px, 7vw, 100px);
+
+    line-height: .95;
+
+    letter-spacing: 2px;
+
+}
+
+
+.hero h2 span {
+
+    color: #e6a900;
+
+    display: block;
+
+    text-shadow:
+        0 0 25px rgba(230, 169, 0, .3);
+
+}
+
+
+.hero p {
+
+    max-width: 480px;
+
+    margin: 30px 0;
+
+    color: #bbb;
+
+    line-height: 1.8;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+}
+
+
+.gold-button,
+.outline-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px 27px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+
+    transition: .3s;
+
+}
+
+
+.gold-button {
+
+    background: #d79d00;
+
+    color: #080808;
+
+}
+
+
+.gold-button:hover {
+
+    background: #f1bb21;
+
+    box-shadow:
+        0 0 30px rgba(230, 169, 0, .4);
+
+}
+
+
+.outline-button {
+
+    border: 1px solid #777;
+
+    color: #eee;
+
+}
+
+
+.outline-button:hover {
+
+    border-color: #e6a900;
+
+    color: #e6a900;
+
+}
+
+
+.scroll {
+
+    position: absolute;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #888;
+
+}
+
+
+.scroll span {
+
+    display: block;
+
+    width: 1px;
+    height: 35px;
+
+    background: #c89400;
+
+    margin: auto auto 10px;
+
+}
+
+
+
+/* =================================
+   SECTIONS
+================================= */
+
+.section {
+
+    padding: 130px 10%;
+
+    background: #070707;
+
+}
+
+
+.section-heading {
+
+    max-width: 650px;
+
+    margin-bottom: 70px;
+
+}
+
+
+.section-heading span {
+
+    color: #c89400;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.section-heading h2 {
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 45px;
+
+    margin: 15px 0;
+
+}
+
+
+.section-heading p {
+
+    color: #888;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* =================================
+   REALM CARDS
+================================= */
+
+.realm-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.realm-card {
+
+    padding: 45px 35px;
+
+    border: 1px solid #272727;
+
+    background:
+        linear-gradient(145deg,
+            #101010,
+            #070707);
+
+    transition: .4s;
+
+}
+
+
+.realm-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #a87900;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .5);
+
+}
+
+
+.realm-card svg {
+
+    color: #d99f00;
+
+    width: 35px;
+    height: 35px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.realm-card h3 {
+
+    font-family: 'Cinzel', serif;
+
+    margin-bottom: 15px;
+
+}
+
+
+.realm-card p {
+
+    color: #777;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+}
+
+
+
+/* =================================
+   FEATURES
+================================= */
+
+.features-section {
+
+    background:
+        linear-gradient(90deg,
+            #070707,
+            #0c0c0c);
+
+}
+
+
+.feature-list {
+
+    max-width: 850px;
+
+}
+
+
+.feature {
+
+    display: flex;
+
+    gap: 35px;
+
+    padding: 35px 0;
+
+    border-bottom: 1px solid #242424;
+
+}
+
+
+.feature-number {
+
+    color: #c89400;
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 18px;
+
+}
+
+
+.feature h3 {
+
+    font-family: 'Cinzel', serif;
+
+    margin-bottom: 10px;
+
+}
+
+
+.feature p {
+
+    color: #777;
+
+    line-height: 1.7;
+
+}
+
+
+
+/* =================================
+   COMMUNITY
+================================= */
+
+.community-section {
+
+    padding: 130px 10%;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(circle,
+            rgba(177, 123, 0, .13),
+            transparent 45%),
+
+        #050505;
+
+}
+
+
+.community-section span {
+
+    color: #d39b00;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.community-section h2 {
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 50px;
+
+    margin: 20px 0;
+
+}
+
+
+.community-section p {
+
+    color: #888;
+
+}
+
+
+.community-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 40px;
+
+}
+
+
+.community-buttons a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 25px;
+
+    border: 1px solid #333;
+
+    color: #ccc;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    transition: .3s;
+
+}
+
+
+.community-buttons a:hover {
+
+    color: #e6a900;
+
+    border-color: #e6a900;
+
+}
+
+
+
+/* =================================
+   FOOTER
+================================= */
+
+.footer {
+
+    padding: 50px 8%;
+
+    border-top: 1px solid #292929;
+
+    background: #030303;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap: 30px;
+
+    align-items: center;
+
+}
+
+
+.footer-brand {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.footer-dragon {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.footer-dragon img {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+    display: block;
+}
+
+
+.footer-brand strong {
+
+    color: #d9a000;
+
+    font-family: 'Cinzel', serif;
+
+    letter-spacing: 2px;
+
+}
+
+
+.footer-brand span {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #777;
+
+    margin-top: 5px;
+
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+}
+
+
+.footer-links a {
+
+    color: #777;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+}
+
+
+.footer-links a:hover {
+
+    color: #d9a000;
+
+}
+
+
+.footer-social {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 18px;
+
+}
+
+
+.footer-social a {
+
+    color: #777;
+
+}
+
+
+.footer-social a:hover {
+
+    color: #e6a900;
+
+}
+
+
+.copyright {
+
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    color: #444;
+
+    font-size: 10px;
+
+    padding-top: 20px;
+
+}
+
+
+
+/* =================================
+   LOGIN PAGE
+================================= */
+
+.login-page {
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(90deg,
+            rgba(0, 0, 0, 0.88) 0%,
+            rgba(8, 6, 3, 0.55) 45%,
+            rgba(0, 0, 0, 0.82) 100%),
+        url("/dragon-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.back-home {
+
+    position: fixed;
+
+    top: 30px;
+    left: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #aaa;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.back-home:hover {
+
+    color: #e6a900;
+
+}
+
+
+.login-card {
+
+    width: 470px;
+
+    padding: 50px;
+
+    background:
+        rgba(5, 5, 5, .88);
+
+    border: 1px solid #725600;
+
+    box-shadow:
+        0 0 60px rgba(0, 0, 0, .8);
+
+}
+
+
+.login-icon {
+
+    width: 75px;
+    height: 75px;
+
+    border: 1px solid #c89400;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+
+    color: #e6a900;
+
+    box-shadow:
+        0 0 30px rgba(230, 169, 0, .25);
+        
+
+}
+
+
+.login-icon svg {
+
+    width: 34px;
+    height: 34px;
+
+}
+
+
+.login-heading {
+
+    text-align: center;
+
+    margin: 25px 0 35px;
+
+}
+
+
+.login-heading span {
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #c89400;
+
+}
+
+
+.login-heading h1 {
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 30px;
+
+    margin: 10px 0;
+
+}
+
+
+.login-heading p {
+
+    color: #777;
+
+    font-size: 12px;
+
+}
+
+
+.input-group {
+
+    height: 55px;
+
+    border: 1px solid #333;
+
+    margin-bottom: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 17px;
+
+    transition: .3s;
+
+}
+
+
+.input-group:focus-within {
+
+    border-color: #c89400;
+
+}
+
+
+.input-group svg {
+
+    width: 18px;
+
+    color: #888;
+
+    margin-right: 12px;
+
+}
+
+
+.input-group input {
+
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 14px;
+
+}
+
+
+.upload-box {
+
+    height: 65px;
+
+    border: 1px dashed #555;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 12px 15px;
+
+    cursor: pointer;
+
+    margin-bottom: 20px;
+
+}
+
+
+.upload-box:hover {
+
+    border-color: #d39b00;
+
+}
+
+
+.upload-box>svg:first-child {
+
+    color: #d39b00;
+
+}
+
+
+.upload-box div {
+
+    flex: 1;
+
+}
+
+
+.upload-box strong {
+
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.upload-box span {
+
+    display: block;
+
+    color: #777;
+
+    font-size: 11px;
+
+    margin-top: 4px;
+
+}
+
+
+.upload-box>svg:last-child {
+
+    width: 18px;
+
+    color: #888;
+
+}
+
+
+.login-submit {
+
+    width: 100%;
+
+    height: 55px;
+
+    border: none;
+
+    background: #d49b00;
+
+    color: #080808;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+}
+
+
+.login-submit:hover {
+
+    background: #f1b91e;
+
+}
+
+
+
+/* =================================
+   WARRIORS PAGE
+================================= */
+
+.warriors-page {
+
+    background: #050505;
+
+    min-height: 100vh;
+
+}
+
+
+.warriors-header {
+
+    padding:
+
+        170px 8% 80px;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(circle at center,
+            rgba(181, 125, 0, .12),
+            transparent 50%);
+
+}
+
+
+.warriors-header span {
+
+    color: #c89400;
+
+    letter-spacing: 5px;
+
+    font-size: 10px;
+
+}
+
+
+.warriors-header h1 {
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 60px;
+
+    margin: 15px 0;
+
+}
+
+
+.warriors-header p {
+
+    color: #777;
+
+}
+
+
+.players-container {
+
+    padding: 20px 8% 100px;
+
+}
+
+
+.players-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(240px, 1fr));
+
+    gap: 25px;
+
+}
+
+
+.player-card {
+
+    background: #0c0c0c;
+
+    border: 1px solid #252525;
+
+    overflow: hidden;
+
+    transition: .4s;
+
+}
+
+
+.player-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: #a87900;
+
+}
+
+
+.player-image {
+
+    height: 250px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(circle,
+            #202020,
+            #080808);
+
+}
+
+
+.player-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.default-player {
+
+    color: #777;
+
+}
+
+
+.default-player svg {
+
+    width: 70px;
+    height: 70px;
+
+}
+
+
+.player-info {
+
+    padding: 25px;
+
+}
+
+
+.player-info>span {
+
+    color: #b68100;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.player-info h2 {
+
+    font-family: 'Cinzel', serif;
+
+    margin: 8px 0 15px;
+
+}
+
+
+.player-id {
+
+    color: #555;
+
+    font-size: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+}
+
+
+.player-id svg {
+
+    width: 14px;
+
+    color: #9a7000;
+
+}
+
+
+.player-id span {
+
+    color: #888;
+
+}
+
+
+.empty-state {
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+}
+
+
+.empty-state svg {
+
+    width: 55px;
+
+    color: #987000;
+
+}
+
+
+.empty-state h2 {
+
+    font-family: 'Cinzel', serif;
+
+    margin: 20px 0 10px;
+
+}
+
+
+.empty-state p {
+
+    color: #666;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+
+        padding: 0 20px;
+
+    }
+
+
+    .navbar nav {
+
+        display: none;
+
+    }
+
+
+    .hero {
+
+        padding: 0 8%;
+
+    }
+
+
+    .realm-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .footer {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+    }
+
+
+    .footer-links,
+    .footer-social {
+
+        justify-content: center;
+
+    }
+
+
+    .login-card {
+
+        width: calc(100% - 30px);
+
+        padding: 35px 25px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero h2 {
+
+        font-size: 50px;
+
+    }
+
+
+    .community-section h2 {
+
+        font-size: 35px;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
